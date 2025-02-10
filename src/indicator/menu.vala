@@ -108,7 +108,10 @@ public class Menu : Gtk.Grid
 		});
 
 		results = new SelectableList ();
-		var scroll = new Wingpanel.Widgets.AutomaticScrollBox ();
+		var scroll = new Gtk.ScrolledWindow (null, null) {
+			max_content_height = 250,
+            propagate_natural_height = true,
+		};
 		results.scroll = scroll;
 		scroll.add (results);
 

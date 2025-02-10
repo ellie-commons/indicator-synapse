@@ -52,7 +52,7 @@ namespace SynapseIndicator
       {
         try
         {
-          AppInfo.launch_default_for_uri ("https://www.wolframalpha.com/input/?i=" + (Soup.URI.encode (match.title, "+").replace (" ", "+")),
+          AppInfo.launch_default_for_uri ("https://www.wolframalpha.com/input/?i=" + (GLib.Uri.escape_string (match.title, "+").replace (" ", "+")),
             Gdk.Display.get_default ().get_app_launch_context ());
         }
         catch (Error err)

@@ -1,20 +1,23 @@
 project('synapse', 'vala', 'c')
 
-gettext_name = meson.project_name() + '-indicator'
 gnome = import('gnome')
 i18n = import('i18n')
+gettext_name = meson.project_name() + '-indicator'
+
+prefix = get_option('prefix')
+libdir = prefix / get_option('libdir')
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
 
-#asresources = gnome.compile_resources(
-    #'as-resources', 'data/com.github.tom95.indicator-synapse.gresource.xml',
-    #source_dir: 'data',
-    #c_name: 'as'
-#)
-
-wingpanel_dep = dependency('wingpanel-2.0')
+wingpanel_dep = dependency('wingpanel')
+wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
+
+config_data = configuration_data()
+config_data.set_quoted('LOCALEDIR', prefix / get_option('localedir'))
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name() + '-indicator')
+config_data.set_quoted('DATADIR', prefix / get_option('datadir') / meson.project_name())
 
 shared_module(
     meson.project_name(),
@@ -53,7 +56,7 @@ shared_module(
     'src/plugins/gnome-session-plugin.vala',
     'src/plugins/hello-world-plugin.vala',
     'src/plugins/hybrid-search-plugin.vala',
-    'src/plugins/imgur-plugin.vala',
+    # 'src/plugins/imgur-plugin.vala',
     'src/plugins/launchpad-plugin.vala',
     'src/plugins/locate-plugin.vala',
     'src/plugins/opensearch.vala',
@@ -68,21 +71,21 @@ shared_module(
     'src/plugins/xnoise-media-player-plugin.vala',
     'src/plugins/zeitgeist-plugin.vala',
     'src/plugins/zeitgeist-related.vala',
-
     #asresources,
     dependencies: [
         dependency('zeitgeist-2.0'),
         dependency('json-glib-1.0'),
-        dependency('rest-0.7'),
+        # dependency('rest-0.9'),
         dependency('libnotify'),
         dependency('glib-2.0'),
         dependency('gobject-2.0'),
         dependency('gtk+-3.0'),
         dependency('gio-2.0'),
         dependency('gio-unix-2.0'),
+        dependency('libsoup-3.0'),
         wingpanel_dep
     ],
     install: true,
-    install_dir : get_option('libdir') + '/wingpanel' #'/usr/lib/x86_64-linux-gnu/wingpanel' #wingpanel_dep.get_pkgconfig_variable('indicatorsdir')
+    install_dir : wingpanel_indicatorsdir
 )
 
