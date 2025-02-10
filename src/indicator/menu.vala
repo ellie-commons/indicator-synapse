@@ -39,7 +39,10 @@ public class Menu : Gtk.Grid
 	{
 		orientation = Gtk.Orientation.VERTICAL;
 
-		stack = new Gtk.Stack ();
+		stack = new Gtk.Stack () {
+			hexpand = true,
+			hhomogeneous = true
+		};
 		stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
 		entry = new Gtk.Entry ();
@@ -108,16 +111,18 @@ public class Menu : Gtk.Grid
 		});
 
 		results = new SelectableList ();
+		
 		var scroll = new AutomaticScrollBox ();
 		results.scroll = scroll;
+		
 		scroll.add (results);
 
 		context_results = new SelectableList ();
 
 		stack.add_named (scroll, SEARCH_VIEW);
 		stack.add_named (context_results, CONTEXT_VIEW);
-		add (stack);
 
+		add (stack);
 		width_request = 480;
 	}
 

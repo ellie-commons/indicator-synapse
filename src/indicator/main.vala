@@ -84,6 +84,15 @@ public class Main : Wingpanel.Indicator
 
 	public override Gtk.Widget? get_widget () {
 		if (popover_widget == null) {
+			var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("com/github/tom95/indicator-synapse/Indicator.css");
+            
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
 			popover_widget = new Menu ();
 			popover_widget.close.connect (() => {close (); print("restuqest close\n"); });
 

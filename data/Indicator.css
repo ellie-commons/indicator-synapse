@@ -1,0 +1,4 @@
+button:selected {
+    background: @selected_bg_color;
+    color: @selected_fg_color;
+}

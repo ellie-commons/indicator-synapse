@@ -14,6 +14,12 @@ wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 
+gresource = gnome.compile_resources(
+    'as-resources',
+    'data' / 'com.github.tom95.indicator-synapse.gresource.xml',
+    source_dir: 'data'
+)
+
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', prefix / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name() + '-indicator')
@@ -72,7 +78,7 @@ shared_module(
     'src/plugins/xnoise-media-player-plugin.vala',
     'src/plugins/zeitgeist-plugin.vala',
     'src/plugins/zeitgeist-related.vala',
-    #asresources,
+    gresource,
     dependencies: [
         dependency('zeitgeist-2.0'),
         dependency('json-glib-1.0'),
@@ -84,6 +90,7 @@ shared_module(
         dependency('gio-2.0'),
         dependency('gio-unix-2.0'),
         dependency('libsoup-3.0'),
+        dependency('granite', version: '>=6.0.0'),
         wingpanel_dep
     ],
     install: true,
