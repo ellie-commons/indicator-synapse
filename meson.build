@@ -25,6 +25,7 @@ shared_module(
     'src/indicator/menu.vala',
     'src/indicator/match-item.vala',
     'src/indicator/selectable-list.vala',
+    'src/indicator/AutomaticScrollBox.vala',
 
     'src/core/common-actions.vala',
     'src/core/config-service.vala',
