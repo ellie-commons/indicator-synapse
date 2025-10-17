@@ -18,7 +18,7 @@
  *
  */
 
-public class MatchItem : Wingpanel.Widgets.Container
+public class MatchItem : Gtk.Button
 {
 	public SynapseIndicator.Match? match { get; private set; }
 	public SynapseIndicator.Match? target { get; private set; }
@@ -76,7 +76,12 @@ public class MatchItem : Wingpanel.Widgets.Container
 	{
 		this ();
 
-		get_content_widget ().add (get_box (action.description, action.icon_name, large));
+		add (get_box (action.description, action.icon_name, large));
+
+		var style_context = this.get_style_context ();
+        style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+		hexpand = true;
+
 		match = action;
 		target = _target;
 	}
@@ -96,7 +101,11 @@ public class MatchItem : Wingpanel.Widgets.Container
 		outer_box.pack_start (category, false);
 		outer_box.pack_start (inner_box);
 		outer_box.margin_right = 12;
-		get_content_widget ().add (outer_box);
+		add (outer_box);
+
+		var style_context = this.get_style_context ();
+        style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+		hexpand = true;
 
 		if (no_hover) {
 			leave_notify_event.connect (() => { return true; });

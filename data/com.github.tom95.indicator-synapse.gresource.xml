@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/tom95/indicator-synapse/">
+    <file alias="Indicator.css">Indicator.css</file>
+  </gresource>
+</gresources>

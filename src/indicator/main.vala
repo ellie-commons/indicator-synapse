@@ -51,7 +51,7 @@ public class Main : Wingpanel.Indicator
 
 	public static SynapseIndicator.DataSink sink;
 
-	private Wingpanel.Widgets.OverlayIcon? indicator_icon = null;
+	private Gtk.Image? indicator_icon = null;
 	private Menu? popover_widget = null;
 
 	const string CODE_NAME = "com.github.tom95.indicator-synapse";
@@ -59,26 +59,40 @@ public class Main : Wingpanel.Indicator
 	Cancellable? current_search = null;
 
 	public Main (Wingpanel.IndicatorManager.ServerType server_type) {
-		Object (code_name: CODE_NAME,
-			display_name: _("Synapse"),
-			description: _("Synapse Search Indicator"));
+		Object (
+			code_name: CODE_NAME
+		);
 
 		sink = new SynapseIndicator.DataSink ();
 		foreach (var plugin in plugins) {
 			sink.register_static_plugin (plugin);
 		}
+
+		visible = true;
 	}
 
 	public override Gtk.Widget get_display_widget () {
 		if (indicator_icon == null) {
-			indicator_icon = new Wingpanel.Widgets.OverlayIcon ("edit-find-symbolic");
-		}
+            indicator_icon = new Gtk.Image () {
+                icon_name = "edit-find-symbolic",
+                pixel_size = 16
+            }; 
+        }
 
-		return indicator_icon;
+        return indicator_icon;
 	}
 
 	public override Gtk.Widget? get_widget () {
 		if (popover_widget == null) {
+			var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("com/github/tom95/indicator-synapse/Indicator.css");
+            
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
 			popover_widget = new Menu ();
 			popover_widget.close.connect (() => {close (); print("restuqest close\n"); });
 
@@ -96,8 +110,6 @@ public class Main : Wingpanel.Indicator
 			    });
 			});
 		}
-
-		visible = true;
 
 		return popover_widget;
 	}

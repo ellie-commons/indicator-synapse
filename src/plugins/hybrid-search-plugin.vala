@@ -278,7 +278,7 @@ namespace SynapseIndicator
       }
       else
       {
-        var sort_array = new Gee.ArrayList<Gee.Map.Entry<unowned string, int>> ();
+        var sort_array = new Gee.ArrayList<Gee.Map.Entry<string, int>> ();
         int min_hit = int.MAX;
         foreach (var entry in directory_hits.entries)
         {
