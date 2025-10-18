@@ -1,5 +1,3 @@
-# Indicator Synapse
-
 
 <div align="center">
   <h1 align="center">Synapse indicator</h1>
