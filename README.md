@@ -7,7 +7,7 @@ This codebase bundles the original [Synapse Launcher project](https://launchpad.
 ### Global Shortcut
 To open the indicator via shortcut, add a custom shortcut in your keyboard settings with the following command:
 ```
-wingpanel --toggle-indicator=com.github.tom95.indicator-synapse
+wingpanel --toggle-indicator=io.github.ellie_commons.indicator-synapse
 ```
 ### Build instructions
 ```

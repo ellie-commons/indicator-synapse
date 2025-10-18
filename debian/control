@@ -1,4 +1,4 @@
-Source: com.github.tom95.indicator-synapse
+Source: io.github.ellie-commons.wingpanel-indicator-synapse
 Section: x11
 Priority: optional
 Maintainer: Tom Beckmann <tomjonabc@gmail.com>
@@ -17,7 +17,7 @@ Build-Depends: debhelper (>= 10.2.2),
                libkeybinder-3.0-dev
 
 Standards-Version: 3.9.7
-Package: com.github.tom95.indicator-synapse
+Package: io.github.ellie-commons.wingpanel-indicator-synapse
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Recommends: zeitgeist (>= 0.9.14) | zeitgeist-core (>= 0.9.14), consolekit, pastebinit, upower

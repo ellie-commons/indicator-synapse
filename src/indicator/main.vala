@@ -20,6 +20,8 @@
 
 public class Main : Wingpanel.Indicator
 {
+	private static GLib.Settings settings;
+
 	// backend synapse initialization
 	Type[] plugins = {
         typeof (SynapseIndicator.DesktopFilePlugin),
@@ -54,7 +56,7 @@ public class Main : Wingpanel.Indicator
 	private Gtk.Image? indicator_icon = null;
 	private Menu? popover_widget = null;
 
-	const string CODE_NAME = "com.github.tom95.indicator-synapse";
+	const string CODE_NAME = "io.github.ellie_commons.indicator-synapse";
 
 	Cancellable? current_search = null;
 
@@ -68,7 +70,8 @@ public class Main : Wingpanel.Indicator
 			sink.register_static_plugin (plugin);
 		}
 
-		visible = true;
+        settings = new GLib.Settings ("io.github.ellie_commons.indicator-synapse");
+        settings.bind ("visible", this, "visible", GLib.SettingsBindFlags.DEFAULT);
 	}
 
 	public override Gtk.Widget get_display_widget () {
@@ -85,7 +88,7 @@ public class Main : Wingpanel.Indicator
 	public override Gtk.Widget? get_widget () {
 		if (popover_widget == null) {
 			var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("com/github/tom95/indicator-synapse/Indicator.css");
+            provider.load_from_resource ("io/github/ellie_commons/indicator-synapse/Indicator.css");
             
             Gtk.StyleContext.add_provider_for_screen (
                 Gdk.Screen.get_default (),
