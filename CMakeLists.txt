@@ -45,16 +45,16 @@ configure_file(
 add_custom_target(uninstall
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/Uninstall.cmake)
 
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.tom95.indicator-synapse.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/metainfo/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.tom95.indicator-synapse.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/io.github.ellie_commons.indicator-synapse.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/metainfo/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/io.github.ellie_commons.indicator-synapse.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
 
-install (FILES data/icons/com.github.tom95.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/)
-install (FILES data/icons/16/com.github.tom95.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16/apps/)
-install (FILES data/icons/24/com.github.tom95.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/24x24/apps/)
-install (FILES data/icons/32/com.github.tom95.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/32x32/apps/)
-install (FILES data/icons/48/com.github.tom95.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/48x48/apps/)
-install (FILES data/icons/com.github.tom95.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/64x64/apps/)
-install (FILES data/icons/com.github.tom95.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/128x128/apps/)
+install (FILES data/icons/io.github.ellie_commons.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/)
+install (FILES data/icons/16/io.github.ellie_commons.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16/apps/)
+install (FILES data/icons/24/io.github.ellie_commons.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/24x24/apps/)
+install (FILES data/icons/32/io.github.ellie_commons.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/32x32/apps/)
+install (FILES data/icons/48/io.github.ellie_commons.indicator-synapse.png DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/48x48/apps/)
+install (FILES data/icons/io.github.ellie_commons.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/64x64/apps/)
+install (FILES data/icons/io.github.ellie_commons.indicator-synapse.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/128x128/apps/)
 
 # work around elementary/houston requiring an installed "binary"
-install (PROGRAMS data/com.github.tom95.indicator-synapse DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install (PROGRAMS data/io.github.ellie_commons.indicator-synapse DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/io/github/ellie_commons/indicator-synapse/" id="io.github.ellie_commons.indicator-synapse">
+		<key name="visible" type="b">
+			<default>true</default>
+			<summary>Whether indicator is visible</summary>
+			<description>Hide indicator if set to false. It is still running, just hidden</description>
+		</key>
+	</schema>
+</schemalist>

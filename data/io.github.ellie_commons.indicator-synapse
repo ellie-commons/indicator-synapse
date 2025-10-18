@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sleep 0.4
+wingpanel --toggle-indicator=io.github.ellie_commons.indicator-synapse

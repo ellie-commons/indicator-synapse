@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 Tom Beckmann <tomjonabc@gmail.com> -->
 <component type="desktop">
-  <id>com.github.tom95.indicator-synapse.desktop</id>
+  <id>io.github.ellie_commons.indicator-synapse.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <developer_name>Tom Beckmann</developer_name>
@@ -19,7 +19,7 @@
   <description>
     <p>A search indicator for your wingpanel. Powered by Synapse. Searches through your local files, applications and offers actions like reboot or media pause/play.</p>
     <p>To add a shortcut, go to your keyboard settings and add a custom shortcut with the following command:</p>
-    <p>wingpanel --toggle-indicator=com.github.tom95.indicator-synapse</p>
+    <p>wingpanel --toggle-indicator=io.github.ellie_commons.indicator-synapse</p>
   </description>
   <releases>
     <release version="0.1.1" date="2018-03-04">

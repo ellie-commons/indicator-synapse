@@ -16,7 +16,7 @@ add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi
 
 gresource = gnome.compile_resources(
     'as-resources',
-    'data' / 'com.github.tom95.indicator-synapse.gresource.xml',
+    'data' / 'gresource.xml',
     source_dir: 'data'
 )
 
@@ -97,3 +97,6 @@ shared_module(
     install_dir : wingpanel_indicatorsdir
 )
 
+subdir ('data')
+
+gnome.post_install(glib_compile_schemas: true)
