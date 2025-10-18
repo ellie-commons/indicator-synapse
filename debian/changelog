@@ -4,19 +4,19 @@ io.github.ellie-commons.wingpanel-indicator-synapse (1.0.0) jammy; urgency=mediu
 
  -- Stella <teamcons.carrd.co>  Sat, 18 Oct 2025 01:09:16 +0300
 
-io.github.ellie_commons.indicator-synapse (0.1.2) xenial; urgency=low
+io.github.ellie-commons.wingpanel-indicator-synapse (0.1.2) xenial; urgency=low
 
   * Packaging and deploy to launchpad
 
  -- Tom Beckmann <tomjonabc@gmail.com>  Mon, 21 Mar 2018 16:43:00 +0100
 
-io.github.ellie_commons.indicator-synapse (0.1.1) xenial; urgency=low
+io.github.ellie-commons.wingpanel-indicator-synapse (0.1.1) xenial; urgency=low
 
   * Update to new RDNN, publish data for appcenter.
 
  -- Tom Beckmann <tomjonabc@gmail.com>  Mon, 05 Mar 2018 09:25:00 +0100
 
-io.github.ellie_commons.indicator-synapse (0.1) xenial; urgency=low
+io.github.ellie-commons.wingpanel-indicator-synapse (0.1) xenial; urgency=low
 
   * Initial Release.
 

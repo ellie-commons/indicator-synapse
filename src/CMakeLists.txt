@@ -1,7 +1,7 @@
 find_package (PkgConfig)
 
 # Add all your dependencies to the list below
-pkg_check_modules (DEPS REQUIRED zeitgeist-2.0 json-glib-1.0 rest-0.7 glib-2.0 gobject-2.0 gtk+-3.0 gio-2.0 gio-unix-2.0 wingpanel-2.0 libnotify)
+pkg_check_modules (DEPS REQUIRED zeitgeist-2.0 json-glib-1.0 rest-1.0 glib-2.0 gobject-2.0 gtk+-3.0 gio-2.0 gio-unix-2.0 wingpanel libnotify)
 
 add_definitions (${DEPS_CFLAGS})
 link_directories (${DEPS_LIBRARY_DIRS})
@@ -64,7 +64,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     plugins/zeitgeist-related.vala
 
 PACKAGES
-    zeitgeist-2.0 json-glib-1.0 rest-0.7 glib-2.0 gobject-2.0 gtk+-3.0 gio-2.0 gio-unix-2.0 wingpanel-2.0 libnotify
+    zeitgeist-2.0 json-glib-1.0 rest-1.0 glib-2.0 gobject-2.0 gtk+-3.0 gio-2.0 gio-unix-2.0 wingpanel libnotify
 OPTIONS
   --thread
   --vapidir=${CMAKE_SOURCE_DIR}/vapi
